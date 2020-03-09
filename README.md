@@ -14,10 +14,10 @@ Routes are:
 ```
 \
 ##### Quick links
-[POST a sold article](#sold)
-[GET number of sold articles](#numsales)
-[GET total revenue](#totalrevenue)
-[GET revenue by article](#statistics)
+[POST a sold article](#sold)  
+[GET number of sold articles](#numsales)  
+[GET total revenue](#totalrevenue)  
+[GET revenue by article](#statistics)  
 \
 <a name="sold"/>
 ## api/sold
