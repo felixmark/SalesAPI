@@ -1,0 +1,203 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "SalesAPI",
+    "description" : "This is a simple C# REST API for storing sold items with POST requests and getting information about the items with GET requests.",
+    "version" : "0.1",
+    "contact" : {
+      "name" : "Felix Mark",
+      "email" : "felix.mark@hotmail.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers" : [ {
+    "url" : "http://localhost:64205"
+  } ],
+  "tags" : [ {
+    "name" : "normal",
+    "description" : "Normal calls allowed by everyone."
+  } ],
+  "paths" : {
+    "/api/swagger" : {
+      "get" : {
+        "operationId" : "Swagger definition",
+        "description" : "Get the API Swagger definition.",
+        "tags" : [ "normal" ],
+        "responses" : {
+          "200" : {
+            "description" : "The Swagger definition as a JSON.",
+            "content" : {
+              "text/plain; charset=utf-8" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/numsales" : {
+      "get" : {
+        "operationId" : "Number of sales",
+        "description" : "Get the number of sales for a day.",
+        "tags" : [ "normal" ],
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "required" : false,
+          "description" : "Day to get the sold article number.",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "03%2F06%2F2020"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Status and the number of sales as an integer.",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "examples" : {
+                  "0" : {
+                    "value" : "{\n    \"status\": 0\n    \"value\": 5\n}"
+                  },
+                  "1" : {
+                    "value" : "{\n    \"status\": 1\n    \"description\": \"Date 27/13/1995 has a wrong date format. (should be MM/DD/YYYY)\")\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/totalrevenue" : {
+      "get" : {
+        "operationId" : "Total revenue per day",
+        "description" : "Get the total revenue for a day.",
+        "tags" : [ "normal" ],
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "required" : false,
+          "description" : "Day to get the total revenue.",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "03%2F09%2F2020"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "The total revenue per day as a double value.",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "examples" : {
+                  "0" : {
+                    "value" : "{\n    \"status\": 0\n    \"value\": 130.75\n}"
+                  },
+                  "1" : {
+                    "value" : "{\n    \"status\": 1\n    \"description\": \"Date 27/13/1995 has a wrong date format. (should be MM/DD/YYYY)\")\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/statistics" : {
+      "get" : {
+        "operationId" : "Revenue grouped by article",
+        "description" : "Get the total revenue grouped by article.",
+        "tags" : [ "normal" ],
+        "responses" : {
+          "200" : {
+            "description" : "Object with status and Array containing SoldItem objects grouped by article.",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "object"
+                },
+                "examples" : {
+                  "0" : {
+                    "value" : "{\n    \"status\": 0,\n    \"articles\": [\n      {\n        \"articleNumber\":\"A1301351\",\n        \"revenue\": 22.5\n      },\n      {\n        \"articleNumber\":\"B1301351\",\n        \"revenue\": 44.25\n      }\n    ]\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sold" : {
+      "post" : {
+        "operationId" : "Add sold item",
+        "description" : "Post a new sold item (see documentation for the format)",
+        "tags" : [ "normal" ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "articleNumber" : {
+                    "type" : "string"
+                  },
+                  "salesPrice" : {
+                    "type" : "number"
+                  }
+                }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n    \"articleNumber\": \"A1301351\",\n    \"salesPrice\": 10.50\n}"
+                },
+                "1" : {
+                  "value" : "{\n    \"articleNumber\": \"B743\",\n    \"salesPrice\": 22.70\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Jsonobject with status and description.",
+            "content" : {
+              "text/plain; charset=utf-8" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "status" : {
+                      "type" : "integer"
+                    },
+                    "description" : {
+                      "type" : "string"
+                    }
+                  }
+                },
+                "examples" : {
+                  "0" : {
+                    "value" : "{\n    \"status\": 0,\n    \"description\": \"Article SomeArticle was sold for 22.5€.\"\n}"
+                  },
+                  "1" : {
+                    "value" : "{\n    \"status\": 1,\n    \"description\": \"You have to provide a valid JSON Object of the article in the POST request body.For an example have a look at the documentation.\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
