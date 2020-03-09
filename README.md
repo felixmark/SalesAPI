@@ -1,7 +1,7 @@
 # SalesAPI
 This is a simple C# REST API for storing sold items with POST requests and getting information about the items with GET requests.
-Estimated effort: 4-8h
-Approximated real effort: about 8h
+* Estimated effort: 4-8h
+* Approximated real effort: about 8h
 
 Routes are:
 ```
