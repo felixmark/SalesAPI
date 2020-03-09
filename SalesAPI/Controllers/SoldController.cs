@@ -15,6 +15,8 @@ namespace SalesAPI.Controllers {
         [HttpPost]
         public JObject Post([FromBody] SoldItem soldItem) {
 
+            // Add a new SoldItem to the "Database" 
+
 #if DEBUG
             // Print POST Request
             Console.WriteLine("POST " + ROUTE);

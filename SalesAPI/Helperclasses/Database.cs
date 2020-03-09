@@ -6,10 +6,10 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
 
-namespace SalesAPI
-{
-    public class Database
-    {
+namespace SalesAPI {
+    public class Database {
+
+        // This is my fake database heheh
         public static LinkedList<SoldItem> soldItemList = new LinkedList<SoldItem>();
 
         public static bool addSoldItem(SoldItem soldItem) {
@@ -40,7 +40,7 @@ namespace SalesAPI
         public static double getTotalRevenue(DateTime when) {
             double totalRevenue = 0;
 
-            // build sum of all revenues
+            // build sum of all revenues for the given date
             foreach (SoldItem soldItem in soldItemList) {
                 if (soldItem.SaleDate.Date == when.Date) {
                     totalRevenue += soldItem.SalesPrice;
@@ -71,6 +71,7 @@ namespace SalesAPI
                 }
             }
 
+            // Convert the dictionary to a JSON Array with Objects
             foreach (KeyValuePair<string,double> articleObject in revenueByArticle) {
                 jsonArray.Add(new JObject(new JProperty("articleNumber", articleObject.Key), new JProperty("revenue", articleObject.Value)));
             }

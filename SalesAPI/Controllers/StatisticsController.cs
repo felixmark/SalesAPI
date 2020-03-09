@@ -18,6 +18,7 @@ namespace SalesAPI.Controllers {
         [HttpGet]
         public JObject Get() {
 
+            // Get the revenue grouped by articles
 #if DEBUG
             // Print GET Request
             Console.WriteLine("GET " + ROUTE);

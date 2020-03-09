@@ -18,13 +18,15 @@ namespace SalesAPI.Controllers {
         [HttpGet]
         public JObject Get(string date = "") {
 
+            // Get the total revenue for the given day
+
 #if DEBUG
             // Print GET Request
             Console.WriteLine("GET " + ROUTE);
 #endif
 
             try {
-                DateTime dateTime = Program.formatStringToDateTime(date);
+                DateTime dateTime = DateTimeParser.formatStringToDateTime(date);
                 return new JObject(
                     new JProperty("status", 0),
                     new JProperty("value", Database.getTotalRevenue(dateTime))
