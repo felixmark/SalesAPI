@@ -12,8 +12,8 @@ Routes are:
 /api/totalrevenue - GET the total revenue of the current day or with ?date=MM/DD/YYYY parameter of the given day.
 /api/statistics   - GET the total revenue grouped by article. 
 ```
-<br>
-<br>
+<br/>
+<br/>
 ## api/sold
 POST a new sold item.
 The format of the article object in the content body is:
@@ -39,8 +39,8 @@ or in case of an error:
   "description": "You have to provide a valid JSON Object of the article in the POST request body.For an example have a look at the documentation."
 }
 ```
-<br>
-<br>
+<br/>
+<br/>
 ## /api/numsales
 GET the number of sold items for the current day or with ?date=MM/DD/YYYY parameter of the given day.
 The format of the response is:
@@ -58,8 +58,8 @@ or in case of an error:
   "description": "There was an error in the given date."
 }
 ```
-<br>
-<br>
+<br/>
+<br/>
 ## /api/totalrevenue
 GET the total revenue of the current day or with ?date=MM/DD/YYYY parameter of the given day.
 The format of the response is:
@@ -77,8 +77,8 @@ or in case of an error:
   "description": "There was an error in the given date."
 }
 ```
-<br>
-<br>
+<br/>
+<br/>
 ## /api/statistics
 GET the total revenue grouped by article. 
 The format of the response is:
