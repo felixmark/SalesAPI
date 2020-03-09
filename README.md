@@ -2,7 +2,7 @@
 This is a simple C# REST API for storing sold items with POST requests and getting information about the items with GET requests.
 * Estimated effort: 4-8h
 * Approximated real effort: about 8h
-* Swagger definition in the project and available at [SwaggerHub](https://app.swaggerhub.com/apis/felixmark/SalesAPI/0.1).
+* Swagger definition in the project and available at [https://app.swaggerhub.com/apis/felixmark/SalesAPI/0.1](https://app.swaggerhub.com/apis/felixmark/SalesAPI/0.1).
   
   
 ##### Routes are:
