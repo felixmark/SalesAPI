@@ -13,7 +13,7 @@ Routes are:
 /api/statistics   - GET the total revenue grouped by article. 
 ```
 
-#api/sold
+## api/sold
 POST a new sold item.
 The format of the article object in the content body is:
 ```
@@ -22,8 +22,8 @@ The format of the article object in the content body is:
   "salesPrice": 10.50
 }
 ```
-the response to a posted item is:
 
+the response to a posted item is:
 ```
 {
   "status": 0,
@@ -38,7 +38,7 @@ or in case of an error:
 }
 ```
 
-#/api/numsales
+## /api/numsales
 GET the number of sold items for the current day or with ?date=MM/DD/YYYY parameter of the given day.
 The format of the response is:
 ```
@@ -47,6 +47,7 @@ The format of the response is:
   "value": 7
 }
 ```
+
 or in case of an error:
 ```
 {
@@ -56,7 +57,7 @@ or in case of an error:
 ```
 
 
-#/api/totalrevenue
+## /api/totalrevenue
 GET the total revenue of the current day or with ?date=MM/DD/YYYY parameter of the given day.
 The format of the response is:
 ```
@@ -65,6 +66,7 @@ The format of the response is:
   "value": 70.45
 }
 ```
+
 or in case of an error:
 ```
 {
@@ -74,7 +76,7 @@ or in case of an error:
 ```
 
 
-#/api/statistics
+## /api/statistics
 GET the total revenue grouped by article. 
 The format of the response is:
 ```
@@ -92,6 +94,7 @@ The format of the response is:
   ]
 }
 ```
+
 or in case of an error:
 ```
 {
