@@ -12,7 +12,7 @@ Routes are:
 /api/totalrevenue - GET the total revenue of the current day or with ?date=MM/DD/YYYY parameter of the given day.
 /api/statistics   - GET the total revenue grouped by article. 
 ```
-\
+  
 ##### Quick links
 [POST a sold article](#sold)  
 [GET number of sold articles](#numsales)  
